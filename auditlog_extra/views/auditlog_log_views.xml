@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_auditlog_log_form_inherit">
+        <field name="name">auditlog.log.form.inherit</field>
+        <field name="model">auditlog.log</field>
+        <field name="inherit_id" ref="auditlog.view_auditlog_log_form"/>
+        <field name="arch" type="xml">
+            <group position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_open_record" type="object" class="oe_stat_button" icon="fa-database">
+                        View record
+                    </button>
+                </div>
+            </group>
+        </field>
+    </record>
+</odoo>
