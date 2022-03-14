@@ -75,7 +75,7 @@ class AuditlogRule(models.Model):
                 'name': 'auditlog.' + model_view.name,
                 'type': 'form',
                 'model': self.model_id.model,
-                'priority': 1,
+                'priority': 99,
                 'inherit_id': model_view.id,
                 'mode': 'extension',
                 'arch_base': arch.encode('utf-8')
