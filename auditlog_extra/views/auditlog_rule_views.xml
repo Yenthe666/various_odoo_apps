@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_auditlog_rule_form_inherit">
+        <field name="name">auditlog.rule.form.inherit</field>
+        <field name="model">auditlog.rule</field>
+        <field name="inherit_id" ref="auditlog.view_auditlog_rule_form"/>
+        <field name="arch" type="xml">
+            <group position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="%(auditlog.action_auditlog_log_tree)d" type="action" class="oe_stat_button" icon="fa-database"
+                    context="{'search_default_model_id': model_id}">
+                        View logs
+                    </button>
+                </div>
+            </group>
+
+            <header position="inside">
+                <button name="action_add_smartbutton_on_forms" type="object"
+                        string="ADD SMART BUTTON"
+                        attrs="{'invisible': ['|', '|', ('model_id', '=', False), ('smart_button_view_id', '!=', False),  ('state', '!=', 'subscribed')]}"
+                        class="btn btn-success"/>
+                <button name="action_remove_smartbutton_on_forms" type="object"
+                        string="REMOVE SMART BUTTON"
+                        attrs="{'invisible': ['|', ('smart_button_view_id', '=', False), ('state', '!=', 'subscribed')]}"
+                        class="btn btn-danger"/>
+            </header>
+
+            <field name="log_type" position="after">
+                <field name="field_ids" widget="many2many_tags"
+                       attrs="{'invisible': [('log_type', '!=', 'specific_fields')]}"/>
+                <field name="smart_button_view_id" readonly="1"
+                       attrs="{'invisible': [('smart_button_view_id', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
