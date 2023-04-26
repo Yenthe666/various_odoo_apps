@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="web.ActionDialog.header" 
+      t-inherit-mode="extension" owl="1">
+      <xpath expr='//DebugMenu[@t-if="env.debug"]' position="attributes">
+        <attribute name="t-if">
+          env.debug and isFormAllData
+        </attribute>
+      </xpath>
+    </t>
+</templates>
