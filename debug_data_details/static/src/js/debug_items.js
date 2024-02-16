@@ -73,6 +73,7 @@ patch(viewService, "debug_data_details_viewService", {
                 action_id: options.actionId || false,
                 load_filters: options.loadIrFilters || false,
                 open_all_data: flag,
+                toolbar: options.loadActionMenus || true
             };
             if (env.isSmall) {
                 loadViewsOptions.mobile = true;
